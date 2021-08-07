@@ -13,6 +13,14 @@ body {
     letter-spacing: 1px;
 }
 
+.form__count {
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-size: 13px;
+    margin: 0 0 0 0;
+    color: grey; 
+}
+
 .form__input, 
 .form__button,
 .form__button-lang {

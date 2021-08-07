@@ -1,6 +1,6 @@
 'use strict';
 
-// Ver 1.2 commit: Logunovich Denis (logunovich@gmail.com)
+// Ver 1.4 commit: Logunovich Denis (logunovich@gmail.com)
 
 const text = document.querySelector('#my__text'),
       correctTextField = document.querySelector('#final__text'),
@@ -121,12 +121,13 @@ function correctTextFun(num) {
         belCorrectText = belCorrectText.replace(/и/gm, 'i').replace(/И/gm, 'I');
         correctTextField.textContent = belCorrectText;
     }
-     
+
 };
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     correctTextFun(); // вызывать функцию без аргумента! 
+    
 });
 
 // обработчик события для кнопки бел. языка 
@@ -136,4 +137,19 @@ btnMova.addEventListener('click', (e) => {
     correctTextFun(0); // вызывать функцию только с нулем в качестве аргумента! 
 
 });
+
+// функция подсчета симолов в исходном тексте
+
+const count = document.querySelector('.form__count span');
+count.style.cssText = 'font-size: 15px; font-weight: bold; color: #6d6d6d'; 
+
+text.addEventListener('input', ()=> {
+    countSymb();
+});
+
+function countSymb() {
+count.textContent = text.value.length;
+};
+
+
 
