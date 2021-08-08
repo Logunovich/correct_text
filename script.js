@@ -54,7 +54,7 @@ function correctTextFun(num) {
     .replace(/ст\.9/gim, 'ст. 9');
     correctTextField.textContent = correctText;
 
-    // условие для кнопки бел. языка (остальные raplace подставятся автоматически)
+    // условие для кнопки бел. языка (остальные replace подставятся автоматически)
     if (num == 0) {
         let belCorrectText = correctText
         .replace(/ау/gm, 'аў') // а
@@ -126,17 +126,21 @@ function correctTextFun(num) {
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
+    const inputMova = document.querySelector('#mova');
+    if (inputMova.checked === true) {
+        correctTextFun(0);
+    } else {
     correctTextFun(); // вызывать функцию без аргумента! 
-    
+}
 });
 
 // обработчик события для кнопки бел. языка 
 
-btnMova.addEventListener('click', (e) => {
-    e.preventDefault();
-    correctTextFun(0); // вызывать функцию только с нулем в качестве аргумента! 
+// btnMova.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     correctTextFun(0); // вызывать функцию только с нулем в качестве аргумента! 
 
-});
+// });
 
 // функция подсчета симолов в исходном тексте
 
@@ -144,12 +148,12 @@ const count = document.querySelector('.form__count span');
 count.style.cssText = 'font-size: 15px; font-weight: bold; color: #6d6d6d'; 
 
 text.addEventListener('input', ()=> {
-    countSymb();
+    count.textContent = text.value.length;
 });
 
-function countSymb() {
-count.textContent = text.value.length;
-};
+// работаем над ссылками, которые добавляются под текст
+
+
 
 
 

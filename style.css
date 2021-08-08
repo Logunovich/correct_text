@@ -60,3 +60,7 @@ body {
     outline: none;
     transition: 0.3s;
 }
+
+.form__checkbox {
+    margin-bottom: 15px;
+}
