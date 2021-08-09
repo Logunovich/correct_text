@@ -59,6 +59,7 @@ body {
     background-color: #efefef;
     outline: none;
     transition: 0.3s;
+    white-space: pre-wrap;
 }
 
 .form__checkbox {

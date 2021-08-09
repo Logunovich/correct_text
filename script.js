@@ -1,6 +1,6 @@
 'use strict';
 
-// Ver 1.4 commit: Logunovich Denis (logunovich@gmail.com)
+// Ver 1.5 commit: Logunovich Denis (logunovich@gmail.com)
 
 const text = document.querySelector('#my__text'),
       correctTextField = document.querySelector('#final__text'),
@@ -153,7 +153,22 @@ text.addEventListener('input', ()=> {
 
 // работаем над ссылками, которые добавляются под текст
 
+const autoLinks = document.querySelector('.form__button-auto'),
+      otherLinks = document.querySelector('.form__button-other');
 
+autoLinks.addEventListener('click', (e) => {
+    e.preventDefault();
+    correctTextField.innerHTML += `
+--code--
+<p style="text-align: right;"><strong>Auto.Onliner в </strong><a href="https://t.elegram.ru/autoonliner"><strong>Telegram</strong></a><strong>: обстановка на дорогах и только самые важные новости</strong></p>
+<p style="text-align: right;"><strong>Есть о чем рассказать? Пишите в наш </strong><a href="http://t.elegram.ru/newsonliner_bot"><strong>телеграм-бот</strong></a><strong>. Это анонимно и быстро</strong></p>
+`;
+});
 
-
-
+otherLinks.addEventListener('click', (e) => {
+    e.preventDefault();
+    correctTextField.innerHTML += `
+--code--
+<p style="text-align: right;"><strong>Наш канал в <a href="https://t.elegram.ru/onlinerby" target="_blank">Telegram</a>. Присоединяйтесь!</strong></p>
+<p style="text-align: right;"><strong>Есть о чем рассказать? Пишите в наш <a href="https://t.elegram.ru/newsonliner_bot" target="_blank">телеграм-бот</a>. Это анонимно и быстро</strong></p>`;
+});
