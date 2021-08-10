@@ -1,6 +1,6 @@
 'use strict';
 
-// Ver 1.5 commit: Logunovich Denis (logunovich@gmail.com)
+// Ver 1.6 commit: Logunovich Denis (logunovich@gmail.com)
 
 const text = document.querySelector('#my__text'),
       correctTextField = document.querySelector('#final__text'),
@@ -51,7 +51,28 @@ function correctTextFun(num) {
     .replace(/ст\.6/gim, 'ст. 6')
     .replace(/ст\.7/gim, 'ст. 7')
     .replace(/ст\.8/gim, 'ст. 8')
-    .replace(/ст\.9/gim, 'ст. 9');
+    .replace(/ст\.9/gim, 'ст. 9')
+    .replace(/г.р./gim, 'г. р.')
+    .replace(/№ 1/gim, '№1') // обрабатываем номера
+    .replace(/№ 2/gim, '№2')
+    .replace(/№ 3/gim, '№3')
+    .replace(/№ 4/gim, '№4')
+    .replace(/№ 5/gim, '№5')
+    .replace(/№ 6/gim, '№6')
+    .replace(/№ 7/gim, '№7')
+    .replace(/№ 8/gim, '№8')
+    .replace(/№ 9/gim, '№9')
+    .replace(/№ 0/gim, '№0') 
+    .replace(/0 °/gim, '0°') // градусы
+    .replace(/1 °/gim, '1°')
+    .replace(/2 °/gim, '2°')
+    .replace(/3 °/gim, '3°')
+    .replace(/4 °/gim, '4°')
+    .replace(/5 °/gim, '5°')
+    .replace(/6 °/gim, '6°')
+    .replace(/7 °/gim, '7°')
+    .replace(/8 °/gim, '8°')
+    .replace(/9 °/gim, '9°'); 
     correctTextField.textContent = correctText;
 
     // условие для кнопки бел. языка (остальные replace подставятся автоматически)
