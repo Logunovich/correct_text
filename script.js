@@ -25,6 +25,7 @@ function correctTextFun(num) {
     .replace(/"$/gim, '»')
     .replace(/"!/gim, '»!')
     .replace(/"\?/gim, '»?')
+    .replace(/"\)/gim, '»)')
     .replace(/мвтч/gim, 'МВт·ч')
     .replace(/Нм/gm, 'Н·м')
     .replace(/кВтч/gim, 'кВт·ч')
@@ -52,7 +53,7 @@ function correctTextFun(num) {
     .replace(/ст\.7/gim, 'ст. 7')
     .replace(/ст\.8/gim, 'ст. 8')
     .replace(/ст\.9/gim, 'ст. 9')
-    .replace(/г.р./gim, 'г. р.')
+    .replace(/г\.р\./gim, 'г. р.')
     .replace(/№ 1/gim, '№1') // обрабатываем номера
     .replace(/№ 2/gim, '№2')
     .replace(/№ 3/gim, '№3')
@@ -72,7 +73,11 @@ function correctTextFun(num) {
     .replace(/6 °/gim, '6°')
     .replace(/7 °/gim, '7°')
     .replace(/8 °/gim, '8°')
-    .replace(/9 °/gim, '9°'); 
+    .replace(/9 °/gim, '9°')
+    .replace(/Onliner/gim, 'Onlíner');
+
+    
+
     correctTextField.textContent = correctText;
 
     // условие для кнопки бел. языка (остальные replace подставятся автоматически)
@@ -193,3 +198,5 @@ otherLinks.addEventListener('click', (e) => {
 <p style="text-align: right;"><strong>Наш канал в <a href="https://t.elegram.ru/onlinerby" target="_blank">Telegram</a>. Присоединяйтесь!</strong></p>
 <p style="text-align: right;"><strong>Есть о чем рассказать? Пишите в наш <a href="https://t.elegram.ru/newsonliner_bot" target="_blank">телеграм-бот</a>. Это анонимно и быстро</strong></p>`;
 });
+
+
