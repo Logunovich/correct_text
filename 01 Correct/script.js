@@ -7,8 +7,11 @@ const text = document.querySelector('#my__text'),
       btn = document.querySelector('.form__button'),
       btnMova = document.querySelector('.form__button-lang');
 
-function correctTextFun(num) {
-    var correctText = text.value.replace(/ "/gim, ' «')
+function correctTextFun(num = 1) {
+    
+
+    var correctText = text.value
+    .replace(/ "/gim, ' «')
     .replace(/ – /gim, ' — ') // минус
     .replace(/^–(?= )/gim, '—') // минус
     .replace(/,–/gim, ',—') // минус
@@ -76,9 +79,7 @@ function correctTextFun(num) {
     .replace(/9 °/gim, '9°')
     .replace(/Onliner/gim, 'Onlíner');
 
-    
 
-    correctTextField.textContent = correctText;
 
     // условие для кнопки бел. языка (остальные replace подставятся автоматически)
     if (num == 0) {
@@ -145,18 +146,26 @@ function correctTextFun(num) {
         .replace(/Я У/gm, 'Я Ў');
 
         belCorrectText = belCorrectText.replace(/и/gm, 'i').replace(/И/gm, 'I');
-        correctTextField.textContent = belCorrectText;
+        correctTextField.value = belCorrectText;
     }
+    correctTextField.value = correctText;
 
 };
 
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     const inputMova = document.querySelector('#mova');
+    correctTextField.value = '5 сек!';
+
     if (inputMova.checked === true) {
         correctTextFun(0);
     } else {
-    correctTextFun(); // вызывать функцию без аргумента! 
+        setTimeout(() => {
+            correctTextFun();
+        }, 1000);
+
+
+         // вызывать функцию без аргумента! 
 }
 });
 
@@ -184,16 +193,16 @@ const autoLinks = document.querySelector('.form__button-auto'),
 
 autoLinks.addEventListener('click', (e) => {
     e.preventDefault();
-    correctTextField.innerHTML += `
+    correctTextField.value += `
 --code--
-<p style="text-align: right;"><strong>Auto.Onliner в </strong><a href="https://t.elegram.ru/autoonliner"><strong>Telegram</strong></a><strong>: обстановка на дорогах и только самые важные новости</strong></p>
+<p style="text-align: right;"><strong>Auto.Onlíner в </strong><a href="https://t.elegram.ru/autoonliner"><strong>Telegram</strong></a><strong>: обстановка на дорогах и только самые важные новости</strong></p>
 <p style="text-align: right;"><strong>Есть о чем рассказать? Пишите в наш </strong><a href="http://t.elegram.ru/newsonliner_bot"><strong>телеграм-бот</strong></a><strong>. Это анонимно и быстро</strong></p>
 `;
 });
 
 otherLinks.addEventListener('click', (e) => {
     e.preventDefault();
-    correctTextField.innerHTML += `
+    correctTextField.value += `
 --code--
 <p style="text-align: right;"><strong>Наш канал в <a href="https://t.elegram.ru/onlinerby" target="_blank">Telegram</a>. Присоединяйтесь!</strong></p>
 <p style="text-align: right;"><strong>Есть о чем рассказать? Пишите в наш <a href="https://t.elegram.ru/newsonliner_bot" target="_blank">телеграм-бот</a>. Это анонимно и быстро</strong></p>`;
